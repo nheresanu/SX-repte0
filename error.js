@@ -10,18 +10,30 @@ missatge.style.color = 'green';
 
 
 // Aquí poses el codi que vulguis executar
-let resultado = sumar();
-missatge.textContent = "resultado" ;
-console.log('Botón pulsado y script ejecutado.');
-});
-});
+function myFunction() {
+  const message = document.getElementById("p1");
+  message.innerHTML = "";
 
-function sumar() {
-   let n1 = Number(prompt("Introdueix el primer número:"));
-   let n2 = Number(prompt("A continuació, el segon número:"));
-   let suma = n1 + n2; 
+  let x = document.getElementById("demo").value;
 
- console.log(`El resultat de la suma de ${n1} i ${n2} és ${suma}.`);
+  try {
+    if(x.trim() == "") throw "campo vacio";
+    if(isNaN(x)) throw "no es un numero";
 
-   return suma;
+    x = Number(x);
+
+    if(x < 10) throw "numero demasiado bajo";
+    if(x > 20) throw "numero demasiado alto";
+    let resultado = "Opción correcta, el número está entre 10 y 20.";
+
+    message.innerHTML = resultado;
+    
+    console.log("CORRECTO: " + resultado);
+
+  } catch(err) {
+
+    message.innerHTML = "Error, " + err;
+
+    console.error("ERROR: " + err);
+  }
 }
