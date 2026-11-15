@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Selecciona un numero entre 10 y 20:</h1>
+
+<input id="demo" type="text">
+<button type="button" onclick="myFunction()">Test Input</button>
+
+<p id="p1"></p>
+
+<script>
+function myFunction() {
+  const message = document.getElementById("p1");
+  message.innerHTML = "";
+
+  let x = document.getElementById("demo").value;
+
+  try {
+    if(x.trim() == "") throw "campo vacio";
+    if(isNaN(x)) throw "no es un numero";
+
+    x = Number(x);
+
+    if(x < 10) throw "numero demasiado bajo";
+    if(x > 20) throw "numero demasiado alto";
+    let resultado = "Opción correcta, el número está entre 10 y 20.";
+
+    message.innerHTML = resultado;
+    
+    console.log("CORRECTO: " + resultado);
+
+  } catch(err) {
+
+    message.innerHTML = "Error, " + err;
+
+    console.error("ERROR: " + err);
+  }
+}
+</script>
+
+</body>
+</html>
