@@ -1,3 +1,15 @@
+// Espera a que toT elcontigut de l’HTML s’hagi carregat
+document.addEventListener('DOMContentLoaded', () => {
+// Seleccionam el botó pel seu ID
+const boto = document.getElementById('boto');
+const missatge = document.getElementById('missatge');
+// Asignam la funció que s’executara al pulsar el botó
+boto.addEventListener('click', () => {
+missatge.textContent = '¡El archivo script.js se ha ejecutado correctamente!';
+missatge.style.color = 'green';
+
+
+// Aquí poses el codi que vulguis executar
 const patron = /^\s*([+-]?\d+(?:\.\d+)?)\s*([+\-*/%])\s*([+-]?\d+(?:\.\d+)?)\s*$/;
 
 function calcular() {
